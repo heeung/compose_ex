@@ -24,6 +24,7 @@ import test.composestarter.common.CustomCheckBox
 import test.composestarter.common.CustomOutlinedTextField
 import test.composestarter.common.CustomText
 import test.composestarter.common.CustomTextField
+import test.composestarter.common.ScaffoldEx
 import test.composestarter.common.ToastButton
 import test.composestarter.common.TossButton
 import test.composestarter.ui.theme.ComposeStarterTheme
@@ -33,6 +34,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             ComposeStarterTheme {
+//                ScaffoldEx()
                 Column(
                     modifier = Modifier
                         .fillMaxSize()
