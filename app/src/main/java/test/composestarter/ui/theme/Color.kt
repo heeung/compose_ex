@@ -12,3 +12,13 @@ val Pink40 = Color(0xFF7D5260)
 
 val Blue400 = Color(0xFF42A5F5)
 val Blue700 = Color(0xFF405FFF)
+
+val GreenColor = Color(0xFF48D1CC)
+val BlueColor = Color(0xFF0064FF)
+val LightGreyColor = Color(0xFFEBEBEB)
+val ExtraLightGreyColor = Color(0xFFFAFAFA)
+val RedColor = Color(0xFFFF4F4F)
+val GreyColor = Color(0xFF919191)
+val WhiteColor = Color(0xFFFFFFFF)
+val YellowColor = Color(0xFFFFCE4F)
+val BlackColor = Color(0xFF202632)

@@ -18,6 +18,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import ir.kaaveh.sdpcompose.sdp
+import test.composestarter.common.AppBarExample
 import test.composestarter.common.CoilImage
 import test.composestarter.common.CustomCard
 import test.composestarter.common.CustomCheckBox
@@ -34,49 +35,50 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             ComposeStarterTheme {
+                AppBarExample()
 //                ScaffoldEx()
-                Column(
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .background(Color.White),
-                ) {
-//                    Surface(
+//                Column(
+//                    modifier = Modifier
+//                        .fillMaxSize()
+//                        .background(Color.White),
+//                ) {
+////                    Surface(
+////                        modifier = Modifier
+////                            .wrapContentSize()
+////                            .padding(10.sdp)
+//////                                ,
+////                            .weight(1f),
+////                        color = MaterialTheme.colorScheme.background
+////                    ) {
+////                        ToastButton(
+////                            onButtonClicked = {
+////                                Toast.makeText(this@MainActivity, "aaa", Toast.LENGTH_SHORT).show()
+////                            },
+////                            text = "",
+////                        )
+////                    }
+//                    Box (
 //                        modifier = Modifier
 //                            .wrapContentSize()
-//                            .padding(10.sdp)
-////                                ,
-//                            .weight(1f),
-//                        color = MaterialTheme.colorScheme.background
+//                            .padding(10.sdp),
+////                        color = Color.White,
+////                        contentAlignment = Alignment.BottomCenter
 //                    ) {
-//                        ToastButton(
-//                            onButtonClicked = {
-//                                Toast.makeText(this@MainActivity, "aaa", Toast.LENGTH_SHORT).show()
-//                            },
-//                            text = "",
-//                        )
+//                        TossButton()
 //                    }
-                    Box (
-                        modifier = Modifier
-                            .wrapContentSize()
-                            .padding(10.sdp),
-//                        color = Color.White,
-//                        contentAlignment = Alignment.BottomCenter
-                    ) {
-                        TossButton()
-                    }
-                    Box (
-                        modifier = Modifier
-                            .wrapContentSize()
-                            .padding(10.sdp),
-                    ) {
-                        CoilImage()
-                    }
-                    CustomCard()
-                    CustomCheckBox()
-                    CustomTextField()
-                    Spacer(modifier = Modifier.width(10.sdp))
-                    CustomOutlinedTextField()
-                }
+//                    Box (
+//                        modifier = Modifier
+//                            .wrapContentSize()
+//                            .padding(10.sdp),
+//                    ) {
+//                        CoilImage()
+//                    }
+//                    CustomCard()
+//                    CustomCheckBox()
+//                    CustomTextField()
+//                    Spacer(modifier = Modifier.width(10.sdp))
+//                    CustomOutlinedTextField()
+//                }
             }
         }
     }

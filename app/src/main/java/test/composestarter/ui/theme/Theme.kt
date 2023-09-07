@@ -23,10 +23,10 @@ private val DarkColorScheme = darkColorScheme(
 )
 
 private val LightColorScheme = lightColorScheme(
-    primary = Purple40,
-    secondary = PurpleGrey40,
-    tertiary = Pink40,
-    onPrimary = Color.White,
+    primary = GreenColor,
+    secondary = BlackColor,
+    tertiary = BlueColor,
+    onPrimary = GreenColor,
 
     /* Other default colors to override
     background = Color(0xFFFFFBFE),
@@ -59,9 +59,10 @@ fun ComposeStarterTheme(
     if (!view.isInEditMode) {
         SideEffect {
             val window = (view.context as Activity).window
-//            window.statusBarColor = colorScheme.primary.toArgb()
-            window.statusBarColor = Blue700.toArgb()
-            WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = darkTheme
+            
+            window.statusBarColor = WhiteColor.toArgb()
+            // 강제 스테이터스 바 텍스트 색상 바꾸기
+            WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = !darkTheme
         }
     }
 
