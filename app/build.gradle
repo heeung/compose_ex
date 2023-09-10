@@ -76,7 +76,6 @@ dependencies {
 
     implementation 'androidx.compose.material:material:1.1.1'
 
-<<<<<<< HEAD
     // Navigation
     implementation "androidx.navigation:navigation-compose:2.6.0"
     implementation "androidx.hilt:hilt-navigation-compose:1.0.0"
@@ -84,8 +83,6 @@ dependencies {
     // https://mvnrepository.com/artifact/androidx.transition/transition
     implementation 'androidx.transition:transition:1.4.1'
 
-=======
     //constraint
     implementation 'androidx.constraintlayout:constraintlayout-compose:1.0.1'
->>>>>>> origin/main
 }
