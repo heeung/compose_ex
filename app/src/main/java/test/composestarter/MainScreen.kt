@@ -1,15 +1,9 @@
 package test.composestarter
 
-import android.transition.Fade
-import android.transition.TransitionSet
 import android.util.Log
 import androidx.compose.animation.core.FastOutSlowInEasing
 import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.animation.core.tween
-import androidx.compose.foundation.Indication
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.indication
-import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.offset
@@ -21,7 +15,6 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.ripple.LocalRippleTheme
 import androidx.compose.material.ripple.RippleAlpha
 import androidx.compose.material.ripple.RippleTheme
-import androidx.compose.material.ripple.rememberRipple
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
@@ -32,50 +25,37 @@ import androidx.compose.material3.Tab
 import androidx.compose.material3.TabPosition
 import androidx.compose.material3.TabRow
 import androidx.compose.material3.TabRowDefaults
-import androidx.compose.material3.TabRowDefaults.tabIndicatorOffset
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.composed
-import androidx.compose.ui.draw.clip
-import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.Color.Companion.Transparent
-import androidx.compose.ui.graphics.Color.Companion.White
 import androidx.compose.ui.graphics.graphicsLayer
-import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.debugInspectorInfo
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
-import androidx.interpolator.view.animation.FastOutSlowInInterpolator
-import androidx.navigation.NavBackStackEntry
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import androidx.transition.Transition
 import ir.kaaveh.sdpcompose.sdp
 import ir.kaaveh.sdpcompose.ssp
 import test.composestarter.ui.category.MainCategoryScreen
 import test.composestarter.ui.home.MainHomeScreen
 import test.composestarter.ui.like.MainLikeScreen
 import test.composestarter.ui.mypage.MainMypageScreen
-import test.composestarter.ui.theme.Blue400
-import test.composestarter.ui.theme.ComposeStarterTheme
 import test.composestarter.ui.theme.ExtraLightGreyColor
 import test.composestarter.ui.theme.GreenColor
 import test.composestarter.ui.theme.GreyColor
-import test.composestarter.ui.theme.LightGreyColor
 import test.composestarter.ui.theme.WhiteColor
 
 //@OptIn(ExperimentalMaterial3Api::class)
@@ -88,11 +68,17 @@ fun MainScreen(
     articleId: String? = null
 ) {
     val navController = rememberNavController()
-//    val appBarState = rememberAppBarState(navController = navController)
+    val appBarState = rememberAppBarState(navController = navController)
+    val scope = rememberCoroutineScope()
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val currentRoute = navBackStackEntry?.destination?.route
 
     Scaffold(
+        topBar = {
+            if (appBarState.isVisible) {
+                SharedTopAppBar(appBarState = appBarState)
+            }
+        },
         bottomBar = {
             if (MainNav.isMainRoute(currentRoute)) {
                 CustomTabBar(navController = navController, currentRoute = currentRoute)
